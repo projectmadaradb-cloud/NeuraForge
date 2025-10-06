@@ -1,0 +1,56 @@
+[
+  {
+    "slug": "ai-trading-bot-dashboard",
+    "title": "AI Trading Bot Dashboard",
+    "summary": "Real-time P&L monitoring with risk guardrails and strategy toggles across multiple exchanges.",
+    "tags": ["Realtime", "Risk Management", "WebSockets"],
+    "thumb": "/img/work/trading-thumb.svg",
+    "description": "Portfolio managers needed real-time P&L monitoring with risk guardrails and fast strategy toggles across multiple exchanges without risking manual errors.",
+    "outcomes": ["45% reduction in manual trade errors", "<250ms UI update latency", "99.9% uptime for data stream"]
+  },
+  {
+    "slug": "ecommerce-scraper-api",
+    "title": "E-commerce Scraper API",
+    "summary": "Automated competitor price monitoring across 50+ sites with intelligent deduplication.",
+    "tags": ["Scraping", "REST API", "Automation"],
+    "thumb": "/img/work/scraper-thumb.svg",
+    "description": "Growth team needed competitor price monitoring across 50+ e-commerce sites with deduplication, price-change alerts, and structured data export.",
+    "outcomes": ["94% scraping success rate", "Zero IP blocks in 30 days", "85% reduction in analysis time"]
+  },
+  {
+    "slug": "ai-resume-generator",
+    "title": "AI Resume Generator",
+    "summary": "Intelligent resume creation with semantic skill matching and ATS-friendly formatting.",
+    "tags": ["RAG", "Document AI", "PDF Export"],
+    "thumb": "/img/work/resume-thumb.svg",
+    "description": "Job seekers needed personalized resumes that highlight relevant skills and experience for specific roles without manual formatting hassles.",
+    "outcomes": ["73% higher callback rates", "8.5/10 user satisfaction", "60% increase in interviews"]
+  },
+  {
+    "slug": "lead-finder-agent",
+    "title": "Lead-Finder Agent",
+    "summary": "Autonomous sales agent that researches prospects and drafts personalized outreach.",
+    "tags": ["Agent", "Sales Automation", "CRM"],
+    "thumb": "/img/work/lead-thumb.svg",
+    "description": "Sales team needed automated prospect research and personalized outreach generation to scale lead generation efforts.",
+    "outcomes": ["10x faster prospect research", "3x higher response rates", "75% time savings"]
+  },
+  {
+    "slug": "ops-copilot",
+    "title": "AI Model Training",
+    "summary": "Custom AI model training and fine-tuning for domain-specific applications.",
+    "tags": ["Machine Learning", "AI Training", "Custom Models"],
+    "thumb": "/img/work/ops-thumb.svg",
+    "description": "Enterprise needed specialized AI models trained on their proprietary data to achieve better performance than generic solutions.",
+    "outcomes": ["92% accuracy improvement", "50% faster inference time", "80% reduction in training costs"]
+  },
+  {
+    "slug": "vector-search-docs",
+    "title": "Vector Search for Docs",
+    "summary": "Semantic document search with citation tracking for enterprise knowledge bases.",
+    "tags": ["RAG", "Search", "Enterprise"],
+    "thumb": "/img/work/vector-thumb.svg",
+    "description": "Enterprise needed intelligent document search that could understand context and provide accurate citations from large knowledge bases.",
+    "outcomes": ["95% query accuracy", "10x faster information retrieval", "85% reduction in support tickets"]
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "primary": [
+    "Get Your Proposal",
+    "Ship Your Project", 
+    "Start Building",
+    "Get Results Fast",
+    "Launch in Weeks"
+  ],
+  "secondary": [
+    "See Real Results",
+    "View Case Studies",
+    "See Our Work", 
+    "View Examples",
+    "Browse Solutions"
+  ],
+  "urgency": [
+    "Ready to Ship?",
+    "Start This Week?",
+    "Launch in 30 Days?",
+    "Need This Built?",
+    "Ready to Deploy?"
+  ],
+  "value": [
+    "Fixed-fee proposal in 48h",
+    "Clear scope, fast delivery", 
+    "Revenue-focused outcomes",
+    "No scope creep, no surprises",
+    "Measurable business results"
+  ]
+}

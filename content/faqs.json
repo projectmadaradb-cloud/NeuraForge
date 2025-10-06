@@ -1,0 +1,18 @@
+[
+  {
+    "q": "How fast can we start?",
+    "a": "Discovery calls are same week. Typical kick-off is within 5 business days."
+  },
+  {
+    "q": "Do you work fixed fee?",
+    "a": "Yes—most engagements are fixed per sprint with clear deliverables and success criteria."
+  },
+  {
+    "q": "What stacks do you use?",
+    "a": "Next.js, Tailwind, Node/Python (FastAPI), Playwright/Puppeteer, Postgres, Supabase, Vercel, LangChain/OpenAI."
+  },
+  {
+    "q": "Will you maintain after launch?",
+    "a": "We offer a Dedicated retainer ($4000+/mo) for continuous delivery and support."
+  }
+]

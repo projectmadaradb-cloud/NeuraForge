@@ -1,0 +1,20 @@
+[
+  {
+    "name": "A. Sharma",
+    "role": "Founder, D2C brand (demo)",
+    "quote": "NeuraForge shipped a working automation in two weeks that cut our manual ops by half. Clean, fearless execution.",
+    "avatar": "/img/demo/ava1.png"
+  },
+  {
+    "name": "R. Kapoor",
+    "role": "Head of Growth, SaaS (demo)",
+    "quote": "They think in outcomes. We asked for features; they delivered revenue. The dashboard became our daily driver.",
+    "avatar": "/img/demo/ava2.png"
+  },
+  {
+    "name": "M. Iyer",
+    "role": "COO, FinTech (demo)",
+    "quote": "Great taste. Great speed. The agent work saved us dozens of hours per week without breaking our risk rules.",
+    "avatar": "/img/demo/ava3.png"
+  }
+]

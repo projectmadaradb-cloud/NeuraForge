@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Sprint",
+    "range": "Contact us for pricing",
+    "timeline": "1–2 weeks",
+    "for": "Tight prototypes, small automations, or a scoped feature.",
+    "includes": ["Discovery mini-brief", "Design system snippets", "Prod-ready build", "Handover loom"],
+    "excludes": ["Ongoing ops", "Enterprise SSO", "Complex data migrations"],
+    "payment": "50% upfront, 50% on delivery"
+  },
+  {
+    "name": "Growth",
+    "range": "Contact us for pricing",
+    "timeline": "3–5 weeks",
+    "for": "Full feature build, agent + workflow, or API + UI.",
+    "includes": ["Design + build", "Basic analytics", "1 month bug-fix window"],
+    "excludes": ["Dedicated support desk", "24×7 SLAs"],
+    "payment": "40% / 40% / 20% milestones"
+  },
+  {
+    "name": "Dedicated",
+    "range": "Contact us for pricing",
+    "timeline": "Monthly",
+    "for": "Continuous delivery, roadmap ownership, compound automation.",
+    "includes": ["Roadmap & sprints", "Perf/observability", "Priority support"],
+    "excludes": ["On-prem installs"],
+    "payment": "Monthly retainer"
+  }
+]

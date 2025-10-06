@@ -1,0 +1,5 @@
+feat(content): add premium service pages and 6 demo case studies (Purple Effect)
+style(brand): tune glass cards, grid overlay, and glow shadows
+feat(contact): SMTP wired to Zoho, added form success flow + validation
+perf(images): lazy-load portfolio images, reduce hero payload
+docs: add brand brief and content prompts for Copilot

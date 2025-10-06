@@ -1,0 +1,1 @@
+Create abstract gradient mesh backgrounds in deep purple/indigo with subtle grid lines and a soft glow. Add faint geometry (charts, nodes, vectors) to imply data + precision. Ratio 16:9 for hero, 4:3 for tiles. Keep brand colors: #0B0714 background, accents #7C3AED / #60A5FA. Style: premium, minimal, tech-elegant.
