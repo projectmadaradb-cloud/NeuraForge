@@ -7,34 +7,41 @@ import { projects } from "@/lib/projects";
 export default function Portfolio() {
   return (
     <SectionReveal>
-      <div id="portfolio" className="py-20 border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="heading-lg mb-4">Featured Work</h2>
-            <p className="body-lg text-gray-400 max-w-2xl mx-auto">
-              Selected projects showcasing AI-driven solutions and modern engineering practices.
+      <div id="portfolio" className="py-16 sm:py-24 lg:py-32 border-t border-white/10 relative overflow-hidden mobile-safe">
+        {/* Subtle luxury background elements - Mobile Optimized */}
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-950/20 via-transparent to-blue-950/20"></div>
+        <div className="absolute top-1/4 left-1/6 w-48 sm:w-80 lg:w-96 h-48 sm:h-80 lg:h-96 bg-gradient-to-br from-purple-400/8 to-blue-500/8 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/6 w-40 sm:w-64 lg:w-80 h-40 sm:h-64 lg:h-80 bg-gradient-to-br from-indigo-400/8 to-purple-500/8 rounded-full blur-3xl"></div>
+        
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20 xl:mb-24">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black font-display text-gray-900 dark:text-white mb-6 sm:mb-8 leading-tight tracking-tight">
+              Featured <span className="hero-title-gradient">Work</span>
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-gray-700 dark:text-white/80 max-w-4xl mx-auto font-light leading-[1.4] tracking-wide px-4">
+              Selected projects showcasing AI-driven solutions and modern engineering excellence.
             </p>
           </div>
           
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 xl:gap-12 2xl:gap-16">
             {projects.map((p, index) => (
-              <Link key={p.slug} href={`/portfolio/${p.slug}`} className="group">
-                <div className="glass rounded-2xl overflow-hidden hover:shadow-glow transition-all duration-300 card-hover relative">
+              <Link key={p.slug} href={`/portfolio/${p.slug}`} className="group transform-gpu transition-all duration-500 hover:scale-[1.02] sm:hover:scale-105 touch-target">
+                <div className="card-luxury overflow-hidden hover:shadow-nf-glow transition-all duration-500 card-hover relative mobile-safe">
                   
-                  {/* Floating Particles for each card */}
-                  <div className="particles absolute inset-0 pointer-events-none">
+                  {/* Enhanced floating particles - Optimized for mobile */}
+                  <div className="particles absolute inset-0 pointer-events-none opacity-60 sm:opacity-80">
                     <div className="particle" style={{animationDelay: `${index * 0.5}s`}}></div>
                     <div className="particle" style={{animationDelay: `${index * 0.5 + 1}s`}}></div>
                     <div className="particle" style={{animationDelay: `${index * 0.5 + 2}s`}}></div>
                   </div>
 
-                  {/* Animated corner accent */}
-                  <div className="absolute top-4 right-4 w-3 h-3 bg-white/40 rounded-full animate-rotate-slow opacity-60" style={{animationDelay: `${index * 0.7}s`}}></div>
+                  {/* Premium corner accent - Mobile optimized */}
+                  <div className="absolute top-4 right-4 sm:top-6 sm:right-6 w-3 h-3 sm:w-4 sm:h-4 bg-gradient-to-br from-purple-400/60 to-blue-500/60 rounded-full animate-rotate-slow shadow-lg" style={{animationDelay: `${index * 0.7}s`}}></div>
                   
-                  {/* Animated border glow */}
-                  <div className="absolute inset-0 border border-white/10 rounded-2xl animate-shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  {/* Luxury border glow */}
+                  <div className="absolute inset-0 border border-purple-200/20 dark:border-purple-400/20 rounded-3xl animate-shimmer opacity-0 group-hover:opacity-100 transition-opacity duration-500 shadow-nf-glow"></div>
 
-                  <div className="relative overflow-hidden h-48 bg-black/30">
+                  <div className="relative overflow-hidden h-40 sm:h-48 bg-black/30">
                     
                     {/* Animated Content Based on Project Type */}
                     {p.slug === 'ai-trading-bot' && (
@@ -198,18 +205,25 @@ export default function Portfolio() {
                     </div>
                   </div>
                   
-                  <div className="p-6 relative">
-                    {/* Floating background shapes */}
-                    <div className="absolute top-2 left-2 w-8 h-8 bg-white/10 rounded-full animate-wave opacity-50" style={{animationDelay: `${index * 1}s`}}></div>
-                    <div className="absolute bottom-2 right-2 w-6 h-6 bg-white/10 rounded-full animate-breathing opacity-40" style={{animationDelay: `${index * 1.2}s`}}></div>
+                  <div className="p-4 sm:p-6 lg:p-8 xl:p-10 relative bg-gradient-to-br from-white/95 via-white/98 to-purple-50/90 dark:from-gray-900/95 dark:via-gray-900/98 dark:to-purple-950/30 backdrop-blur-sm">
+                    {/* Luxury background pattern */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-b-3xl"></div>
                     
-                    <h3 className="heading-sm mb-2 group-hover:text-gradient transition relative z-10 animate-float" style={{animationDelay: `${index * 0.3}s`}}>{p.title}</h3>
-                    <p className="body-base text-white/70 mb-4 relative z-10 animate-breathing" style={{animationDelay: `${index * 0.4}s`}}>{p.excerpt}</p>
-                    <div className="flex flex-wrap gap-2 relative z-10">
+                    {/* Enhanced floating background shapes - Mobile optimized */}
+                    <div className="absolute top-2 left-2 sm:top-3 sm:left-3 w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 bg-gradient-to-br from-purple-400/20 to-blue-500/20 rounded-full animate-wave shadow-lg" style={{animationDelay: `${index * 1}s`}}></div>
+                    <div className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 w-5 h-5 sm:w-6 sm:h-6 lg:w-8 lg:h-8 bg-gradient-to-br from-indigo-400/20 to-purple-500/20 rounded-full animate-breathing shadow-lg" style={{animationDelay: `${index * 1.2}s`}}></div>
+                    
+                    <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-black text-gray-900 dark:text-white mb-3 sm:mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-blue-600 group-hover:bg-clip-text transition-all duration-500 relative z-10 animate-float leading-tight tracking-wide" style={{animationDelay: `${index * 0.3}s`}}>
+                      {p.title}
+                    </h3>
+                    <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 dark:text-white/80 mb-4 sm:mb-6 relative z-10 animate-breathing font-medium leading-relaxed" style={{animationDelay: `${index * 0.4}s`}}>
+                      {p.excerpt}
+                    </p>
+                    <div className="flex flex-wrap gap-2 sm:gap-3 relative z-10">
                       {p.tags.map((tag, tagIndex) => (
                         <span 
                           key={tag} 
-                          className="px-2 py-1 caption rounded-full bg-purple-600/20 text-purple-300 border border-purple-600/30 font-medium animate-pulse" 
+                          className="px-2 py-1 sm:px-3 sm:py-2 lg:px-4 lg:py-2 text-xs sm:text-sm md:text-base rounded-full bg-gradient-to-r from-purple-500/10 to-blue-500/10 text-purple-700 dark:text-purple-300 border border-purple-200/30 dark:border-purple-400/30 font-semibold animate-pulse hover:scale-105 transition-transform duration-300 tracking-wide" 
                           style={{
                             animationDelay: `${index * 0.2 + tagIndex * 0.1}s`,
                             animationDuration: '3s'
@@ -220,9 +234,9 @@ export default function Portfolio() {
                       ))}
                     </div>
 
-                    {/* Animated progress indicator */}
-                    <div className="absolute bottom-0 left-0 w-full h-1 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="h-full bg-white/30 animate-shimmer rounded-full" style={{width: `${70 + index * 10}%`, animationDelay: `${index * 0.5}s`}}></div>
+                    {/* Premium progress indicator */}
+                    <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-purple-200/20 to-blue-200/20 dark:from-purple-600/20 dark:to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-b-3xl">
+                      <div className="h-full bg-gradient-to-r from-purple-500/60 to-blue-500/60 animate-shimmer rounded-b-3xl shadow-lg" style={{width: `${70 + index * 10}%`, animationDelay: `${index * 0.5}s`}}></div>
                     </div>
                   </div>
                 </div>

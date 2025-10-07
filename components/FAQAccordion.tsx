@@ -18,12 +18,12 @@ export default function FAQAccordion({
     ...serviceFAQs.map(faq => ({
       id: `service-${faq.question.toLowerCase().replace(/\s+/g, '-')}`,
       title: faq.question,
-      content: <p className="text-white/80 leading-relaxed">{faq.answer}</p>
+      content: <p className="text-gray-700 dark:text-white/80 leading-relaxed">{faq.answer}</p>
     })),
     ...generalFAQs.map(faq => ({
       id: `general-${faq.q.toLowerCase().replace(/\s+/g, '-')}`,
       title: faq.q,
-      content: <p className="text-white/80 leading-relaxed">{faq.a}</p>
+      content: <p className="text-gray-700 dark:text-white/80 leading-relaxed">{faq.a}</p>
     }))
   ];
 
@@ -35,7 +35,7 @@ export default function FAQAccordion({
     <section className="section-padding">
       <div className="container-width">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold font-display text-white mb-6">
+          <h2 className="text-4xl font-bold font-display text-gray-900 dark:text-white mb-6">
             {title}
           </h2>
         </div>

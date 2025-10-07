@@ -42,7 +42,7 @@ export const services: Service[] = [
     features: ['React/Next.js', 'TypeScript', 'Tailwind CSS', 'Performance Optimization'],
     stack: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'Vercel', 'Prisma', 'PostgreSQL'],
     pricing: { range: 'Contact us for pricing', timeline: '2-4 weeks' },
-    icon: '🌐',
+    icon: 'web-development',
     category: 'development',
     hero: {
       headline: 'Ship Revenue-Driving Web Apps Fast',
@@ -111,7 +111,7 @@ export const services: Service[] = [
     features: ['React Native', 'Cross-platform', 'Native Performance', 'App Store Ready'],
     stack: ['React Native', 'Expo', 'TypeScript', 'Firebase', 'Supabase', 'App Store'],
     pricing: { range: 'Contact us for pricing', timeline: '4-6 weeks' },
-    icon: '📱',
+    icon: 'app-development',
     category: 'development',
     hero: {
       headline: 'Launch Apps Users Actually Use',
@@ -180,7 +180,7 @@ export const services: Service[] = [
     features: ['Custom AI Models', 'API Integration', 'RAG Systems', 'AI Agents'],
     stack: ['OpenAI GPT-4', 'LangChain', 'Python', 'FastAPI', 'PostgreSQL', 'Docker'],
     pricing: { range: 'Contact us for pricing', timeline: '3-5 weeks' },
-    icon: '🤖',
+    icon: 'ai-solutions',
     category: 'ai',
     hero: {
       headline: 'Scale Your Expertise with Custom AI',
@@ -249,7 +249,7 @@ export const services: Service[] = [
     features: ['Anti-detection', 'Proxy Rotation', 'Data Cleaning', 'API Delivery'],
     stack: ['Python', 'Playwright', 'Scrapy', 'Docker', 'PostgreSQL', 'Redis'],
     pricing: { range: 'Contact us for pricing', timeline: '1-3 weeks' },
-    icon: '🕷️',
+    icon: 'web-scraping',
     category: 'scraping',
     hero: {
       headline: 'Get Clean Data Delivered on Schedule',
@@ -318,7 +318,7 @@ export const services: Service[] = [
     features: ['Strategy Automation', 'Risk Management', 'Real-time Monitoring', 'Backtesting'],
     stack: ['Python', 'FastAPI', 'WebSockets', 'ccxt', 'TradingView', 'InfluxDB'],
     pricing: { range: 'Contact us for pricing', timeline: '3-6 weeks' },
-    icon: '📈',
+    icon: 'trading-bots',
     category: 'automation',
     hero: {
       headline: 'Execute Strategies 24/7 with Confidence',
@@ -387,7 +387,7 @@ export const services: Service[] = [
     features: ['Workflow Design', 'API Integration', 'Data Processing', 'Monitoring'],
     stack: ['Python', 'Zapier', 'Make.com', 'FastAPI', 'PostgreSQL', 'Celery'],
     pricing: { range: 'Contact us for pricing', timeline: '2-4 weeks' },
-    icon: '⚙️',
+    icon: 'business-automation',
     category: 'automation',
     hero: {
       headline: 'Eliminate Repetitive Tasks Forever',
@@ -456,7 +456,7 @@ export const services: Service[] = [
     features: ['Natural Language Processing', 'Decision Trees', 'Learning Algorithms', 'Integration'],
     stack: ['LangChain', 'OpenAI GPT-4', 'PostgreSQL', 'FastAPI', 'Celery', 'Docker'],
     pricing: { range: 'Contact us for pricing', timeline: '4-8 weeks' },
-    icon: '🤵',
+    icon: 'ai-agents',
     category: 'ai',
     hero: {
       headline: 'Deploy Agents That Work Like Employees',

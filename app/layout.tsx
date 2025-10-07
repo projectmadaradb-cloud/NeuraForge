@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Inter, Poppins, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "../components/Header";
+import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import PlausibleProvider from "../components/PlausibleProvider";
+import ThemeProvider from "../providers/ThemeProvider";
 
 export const dynamic = 'force-dynamic';
 
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     template: "%s | NeuraForge"
   },
   description: "AI-native boutique studio shipping revenue-driving products quickly. We build web apps, automation, AI agents, and custom solutions for SMB founders.",
-  keywords: ["AI development", "web development", "automation", "trading bots", "AI agents", "custom software", "NeuraForge"],
+  keywords: ["AI development", "web development", "automation", "trading bots", "AI agents", "custom software", "NeuraForge", "machine learning", "web scraping", "business automation"],
   authors: [{ name: "NeuraForge" }],
   creator: "NeuraForge",
   publisher: "NeuraForge",
@@ -86,7 +87,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`dark ${inter.variable} ${poppins.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en" className={`${inter.variable} ${poppins.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
       <head>
         {/* Preconnect to Google Fonts for faster loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -98,12 +99,89 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Preload critical resources */}
         <link rel="preload" href="/logo-nf.svg" as="image" type="image/svg+xml" />
         
+        {/* Mobile viewport fix for horizontal scroll */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "NeuraForge",
+              "url": "https://neuraforge.tech",
+              "logo": "https://neuraforge.tech/logo.png",
+              "description": "AI-native boutique studio shipping revenue-driving products quickly. We build web apps, automation, AI agents, and custom solutions for SMB founders.",
+              "foundingDate": "2024",
+              "founder": {
+                "@type": "Person",
+                "name": "NeuraForge Founder"
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "Global"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+855763860322",
+                "contactType": "Customer Service",
+                "email": "hello@neuraforge.tech"
+              },
+              "sameAs": [
+                "https://github.com/neuraforge",
+                "https://linkedin.com/company/neuraforge"
+              ],
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "NeuraForge Services",
+                "itemListElement": [
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Web Development",
+                      "description": "Modern web applications and websites"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "AI Solutions",
+                      "description": "Custom AI agents and machine learning solutions"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Business Automation",
+                      "description": "Workflow automation and process optimization"
+                    }
+                  },
+                  {
+                    "@type": "Offer",
+                    "itemOffered": {
+                      "@type": "Service",
+                      "name": "Trading Bots",
+                      "description": "Automated trading systems and financial tools"
+                    }
+                  }
+                ]
+              }
+            })
+          }}
+        />
+        
         <PlausibleProvider />
       </head>
-      <body className="bg-nf-bg text-white font-sans antialiased min-h-screen">
-        <Header />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
+      <body className="bg-white dark:bg-nf-bg text-gray-900 dark:text-white font-sans antialiased min-h-screen overflow-x-hidden transition-colors duration-300">
+        <ThemeProvider>
+          <Navbar />
+          <main className="min-h-screen overflow-x-hidden bg-white dark:bg-nf-bg">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

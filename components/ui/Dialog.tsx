@@ -136,13 +136,13 @@ export function Dialog({
         <div className="flex items-center justify-between p-6 border-b border-white/10">
           <h2 
             id="dialog-title" 
-            className="text-xl font-semibold font-display text-white"
+            className="text-xl font-semibold font-display text-gray-900 dark:text-white"
           >
             {title}
           </h2>
           <button
             onClick={onClose}
-            className="p-2 text-white/60 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nf-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+            className="p-2 text-gray-500 dark:text-white/60 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10 rounded-lg transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-nf-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
             aria-label="Close dialog"
           >
             <svg
@@ -163,7 +163,7 @@ export function Dialog({
         </div>
 
         {/* Content */}
-        <div className="p-6 text-white/80">
+        <div className="p-6 text-gray-700 dark:text-white/80">
           {children}
         </div>
       </div>

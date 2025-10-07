@@ -68,21 +68,27 @@ const engagementModels = [
 
 export default function ProcessPage() {
   return (
-    <main>
-      {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-b from-nf-bg to-nf-bg/80">
-        <div className="container-width">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl md:text-6xl font-bold font-display text-white mb-6">
-              Our <span className="text-nf-primary">Process</span>
+    <main className="min-h-screen transform scale-[0.98] origin-top transition-transform duration-300 hover:scale-100">
+      {/* Luxurious Hero Section */}
+      <section className="pt-40 pb-32 px-6 relative overflow-hidden bg-gradient-to-br from-purple-50/90 via-white to-blue-50/70 dark:from-purple-950/40 dark:via-gray-900 dark:to-blue-950/40">
+        {/* Premium Background Elements */}
+        <div className="absolute inset-0 grid-pattern opacity-25"></div>
+        <div className="absolute top-1/5 left-1/5 w-[32rem] h-[32rem] bg-gradient-to-br from-purple-400/20 to-blue-500/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/5 right-1/5 w-[28rem] h-[28rem] bg-gradient-to-br from-indigo-400/20 to-purple-500/20 rounded-full blur-3xl"></div>
+        
+        <div className="max-w-8xl mx-auto relative z-10">
+          <div className="max-w-6xl mx-auto text-center space-y-12">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-black font-display leading-tight tracking-tight text-gray-900 dark:text-white mb-12">
+              Our <span className="hero-title-gradient">Process</span>
             </h1>
-            <p className="text-xl md:text-2xl text-white/80 leading-relaxed mb-8">
+            <p className="text-2xl md:text-3xl lg:text-4xl text-gray-800 dark:text-white/90 leading-[1.4] font-light tracking-wide mb-16 max-w-5xl mx-auto">
               A proven 5-step approach that ensures we deliver exactly what you need, 
-              on time and on budget. No surprises, just results.
+              on time and on budget. <span className="nf-gradient-text font-semibold">No surprises, just results.</span>
             </p>
-            <div className="inline-flex items-center gap-2 px-4 py-2 glass rounded-full">
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-              <span className="text-white/80 font-medium">
+            
+            <div className="inline-flex items-center gap-4 px-8 py-6 glass-nf rounded-full border border-purple-200/40 dark:border-purple-400/30 shadow-nf-glow">
+              <div className="w-4 h-4 bg-gradient-to-br from-green-400 to-emerald-500 rounded-full animate-pulse shadow-lg" />
+              <span className="text-xl md:text-2xl text-gray-800 dark:text-white/90 font-bold tracking-wide">
                 Average project: 2-4 weeks from start to launch
               </span>
             </div>
@@ -90,55 +96,62 @@ export default function ProcessPage() {
         </div>
       </section>
 
-      {/* Process Steps */}
-      <section className="section-padding">
-        <div className="container-width">
-          <div className="space-y-12">
+      {/* Luxury Process Steps */}
+      <section className="py-32 px-6">
+        <div className="max-w-8xl mx-auto">
+          <div className="space-y-20 lg:space-y-24">
             {processSteps.map((step, index) => (
               <div key={step.number} className="relative">
-                {/* Connector Line */}
+                {/* Luxury Connector Line */}
                 {index < processSteps.length - 1 && (
-                  <div className="hidden lg:block absolute left-6 top-20 w-0.5 h-32 bg-gradient-to-b from-nf-primary to-nf-accent" />
+                  <div className="hidden lg:block absolute left-12 top-32 w-1 h-40 bg-gradient-to-b from-purple-500 via-blue-500 to-indigo-500 rounded-full shadow-nf-glow" />
                 )}
                 
-                <div className="grid lg:grid-cols-12 gap-8 items-start">
-                  {/* Step Number */}
-                  <div className="lg:col-span-2 flex lg:block items-center gap-4">
-                    <div className="w-12 h-12 bg-nf-primary rounded-full flex items-center justify-center text-white font-bold text-lg">
+                <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+                  {/* Premium Step Number */}
+                  <div className="lg:col-span-2 flex lg:block items-center gap-6">
+                    <div className="w-24 h-24 lg:w-28 lg:h-28 bg-gradient-to-br from-purple-500 to-blue-600 rounded-3xl flex items-center justify-center text-white font-black text-3xl lg:text-4xl shadow-nf-glow transform-gpu hover:scale-110 transition-transform duration-500">
                       {step.number}
                     </div>
-                    <div className="lg:mt-4 text-center lg:text-left">
-                      <div className="text-sm text-nf-accent font-medium">
+                    <div className="lg:mt-6 text-center lg:text-left">
+                      <div className="text-xl md:text-2xl nf-gradient-text font-bold tracking-wide">
                         {step.duration}
                       </div>
                     </div>
                   </div>
                   
-                  {/* Content */}
+                  {/* Luxury Content */}
                   <div className="lg:col-span-10">
-                    <Card className="p-8">
-                      <h3 className="text-2xl font-bold font-display text-white mb-4">
-                        {step.title}
-                      </h3>
-                      <p className="text-white/80 leading-relaxed mb-6 text-lg">
-                        {step.description}
-                      </p>
+                    <div className="card-luxury p-12 lg:p-16 xl:p-20 group relative overflow-hidden">
+                      {/* Premium glow effect */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/8 via-blue-500/6 to-indigo-500/8 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
                       
-                      {/* Deliverables */}
-                      <div>
-                        <h4 className="text-sm font-semibold text-nf-accent mb-3 uppercase tracking-wider">
-                          Key Deliverables
-                        </h4>
-                        <div className="grid md:grid-cols-3 gap-3">
-                          {step.deliverables.map((deliverable, idx) => (
-                            <div key={idx} className="flex items-center space-x-2">
-                              <div className="w-2 h-2 bg-nf-primary rounded-full flex-shrink-0" />
-                              <span className="text-white/90 text-sm">{deliverable}</span>
-                            </div>
-                          ))}
+                      <div className="relative z-10 space-y-8">
+                        <h3 className="text-4xl md:text-5xl lg:text-6xl font-black font-display text-gray-900 dark:text-white mb-8 leading-tight tracking-wide group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-blue-600 group-hover:bg-clip-text transition-all duration-500">
+                          {step.title}
+                        </h3>
+                        <p className="text-xl md:text-2xl lg:text-3xl text-gray-800 dark:text-white/90 leading-[1.5] font-light tracking-wide mb-12">
+                          {step.description}
+                        </p>
+                        
+                        {/* Luxury Deliverables */}
+                        <div>
+                          <h4 className="text-xl md:text-2xl font-bold nf-gradient-text mb-8 uppercase tracking-wider">
+                            Key Deliverables
+                          </h4>
+                          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+                            {step.deliverables.map((deliverable, idx) => (
+                              <div key={idx} className="flex items-center space-x-4 p-4 lg:p-6 glass-nf rounded-2xl border border-purple-200/40 dark:border-purple-400/30 hover:shadow-nf-glow transition-all duration-500 group/item">
+                                <div className="w-4 h-4 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex-shrink-0 shadow-lg group-hover/item:scale-125 transition-transform duration-500" />
+                                <span className="text-lg md:text-xl text-gray-800 dark:text-white/95 font-semibold tracking-wide group-hover/item:text-transparent group-hover/item:bg-gradient-to-r group-hover/item:from-purple-600 group-hover/item:to-blue-600 group-hover/item:bg-clip-text transition-all duration-500">
+                                  {deliverable}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                    </Card>
+                    </div>
                   </div>
                 </div>
               </div>

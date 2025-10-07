@@ -16,7 +16,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         {label && (
           <label 
             htmlFor={inputId}
-            className="block text-sm font-medium text-white/80"
+            className="block text-sm font-medium text-gray-700 dark:text-white/80"
           >
             {label}
             {props.required && <span className="text-red-400 ml-1">*</span>}
@@ -36,7 +36,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           <p className="text-red-400 text-sm">{error}</p>
         )}
         {helperText && !error && (
-          <p className="text-white/60 text-sm">{helperText}</p>
+          <p className="text-gray-600 dark:text-white/60 text-sm">{helperText}</p>
         )}
       </div>
     );
@@ -60,7 +60,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
         {label && (
           <label 
             htmlFor={inputId}
-            className="block text-sm font-medium text-white/80"
+            className="block text-sm font-medium text-gray-700 dark:text-white/80"
           >
             {label}
             {props.required && <span className="text-red-400 ml-1">*</span>}
@@ -80,7 +80,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           <p className="text-red-400 text-sm">{error}</p>
         )}
         {helperText && !error && (
-          <p className="text-white/60 text-sm">{helperText}</p>
+          <p className="text-gray-600 dark:text-white/60 text-sm">{helperText}</p>
         )}
       </div>
     );
@@ -105,7 +105,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
         {label && (
           <label 
             htmlFor={inputId}
-            className="block text-sm font-medium text-white/80"
+            className="block text-sm font-medium text-gray-700 dark:text-white/80"
           >
             {label}
             {props.required && <span className="text-red-400 ml-1">*</span>}
@@ -123,7 +123,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
         >
           <option value="">Select an option</option>
           {options.map((option) => (
-            <option key={option.value} value={option.value} className="bg-nf-bg text-white">
+            <option key={option.value} value={option.value} className="bg-white dark:bg-nf-bg text-gray-900 dark:text-white">
               {option.label}
             </option>
           ))}
@@ -132,7 +132,7 @@ const Select = forwardRef<HTMLSelectElement, SelectProps>(
           <p className="text-red-400 text-sm">{error}</p>
         )}
         {helperText && !error && (
-          <p className="text-white/60 text-sm">{helperText}</p>
+          <p className="text-gray-600 dark:text-white/60 text-sm">{helperText}</p>
         )}
       </div>
     );

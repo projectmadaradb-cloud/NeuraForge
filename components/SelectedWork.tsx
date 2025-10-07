@@ -36,10 +36,10 @@ export default function SelectedWork({ projects = [] }: SelectedWorkProps) {
       <div className="container-width">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold font-display text-white mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold font-display text-gray-900 dark:text-white mb-6">
             Selected Work
           </h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-white/70 max-w-3xl mx-auto">
             Real projects that delivered measurable results. From AI agents to trading systems, 
             we build software that drives business outcomes.
           </p>
@@ -94,11 +94,11 @@ export default function SelectedWork({ projects = [] }: SelectedWorkProps) {
                 
                 {/* Content */}
                 <div>
-                  <h3 className="text-xl font-semibold font-display text-white mb-3 group-hover:text-nf-primary transition-colors">
+                  <h3 className="text-xl font-semibold font-display text-gray-900 dark:text-white mb-3 group-hover:text-nf-primary transition-colors">
                     {project.title}
                   </h3>
                   
-                  <p className="text-white/70 leading-relaxed mb-4">
+                  <p className="text-gray-600 dark:text-white/70 leading-relaxed mb-4">
                     {project.summary}
                   </p>
                   

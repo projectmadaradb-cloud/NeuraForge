@@ -1,36 +1,37 @@
 "use client";
 import SectionReveal from "./SectionReveal";
+import ServiceIcon from "./ServiceIcon";
 
 const services = [
   {
     title: "Web Apps",
     description: "Launch conversion-optimized web apps that turn visitors into revenue.",
-    icon: "🌐"
+    icon: "web-development"
   },
   {
     title: "Mobile Apps", 
     description: "Ship native-quality apps users engage with daily.",
-    icon: "📱"
+    icon: "app-development"
   },
   {
     title: "AI Systems",
     description: "Deploy intelligent automation that scales your expertise.",
-    icon: "🤖"
+    icon: "ai-solutions"
   },
   {
     title: "Data Extraction",
     description: "Reliable pipelines delivering clean, structured data on schedule.",
-    icon: "🕷️"
+    icon: "web-scraping"
   },
   {
     title: "Trading Systems",
     description: "Automated strategies with professional risk controls.",
-    icon: "📈"
+    icon: "trading-bots"
   },
   {
     title: "Smart Agents",
     description: "AI agents that handle complex tasks like your best team members.",
-    icon: "🕴️"
+    icon: "ai-agents"
   }
 ];
 
@@ -50,7 +51,9 @@ export default function Services() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => (
               <div key={service.title} className={`glass rounded-2xl p-6 hover:shadow-glow transition group card-hover service-card`} style={{animationDelay: `${index * 0.5}s`}}>
-                <div className="text-3xl mb-4 animate-float" style={{animationDelay: `${index * 0.2}s`}}>{service.icon}</div>
+                <div className="mb-4 animate-float" style={{animationDelay: `${index * 0.2}s`}}>
+                  <ServiceIcon serviceId={service.icon} className="w-12 h-12" />
+                </div>
                 <h3 className="heading-sm mb-3 group-hover:text-gradient transition">{service.title}</h3>
                 <p className="body-base text-white/70 mb-4">
                   {service.description}

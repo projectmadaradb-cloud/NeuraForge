@@ -40,11 +40,11 @@ export function AccordionItem({
         aria-controls={`accordion-content-${id}`}
         id={`accordion-trigger-${id}`}
       >
-        <span className="text-lg font-medium text-white font-display">
+        <span className="text-lg font-medium text-gray-900 dark:text-white font-display">
           {title}
         </span>
         <svg
-          className={`w-5 h-5 text-white/60 transition-transform duration-200 ${
+          className={`w-5 h-5 text-gray-600 dark:text-white/60 transition-transform duration-200 ${
             isOpen ? 'rotate-180' : ''
           }`}
           fill="none"
@@ -70,7 +70,7 @@ export function AccordionItem({
         aria-labelledby={`accordion-trigger-${id}`}
         role="region"
       >
-        <div className="p-4 pt-0 text-white/80 leading-relaxed">
+        <div className="p-4 pt-0 text-gray-700 dark:text-white/80 leading-relaxed">
           {children}
         </div>
       </div>

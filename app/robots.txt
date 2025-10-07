@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://neura-forge.dev/sitemap.xml
+Sitemap: https://neuraforge.tech/sitemap.xml

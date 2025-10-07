@@ -9,13 +9,13 @@ export const dynamic = 'force-dynamic';
 
 export default function HomePage() {
   return (
-    <main>
+    <>
       <Hero />
       <ServicesPreview />
       <SelectedWork />
       <ProcessStrip />
       <Testimonials />
       <CtaBand />
-    </main>
+    </>
   );
 }

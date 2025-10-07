@@ -1,0 +1,208 @@
+/* Premium Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+/* Critical rendering */
+@tailwind base;
+
+/* NeuraForge Design System Variables */
+:root {
+  /* Brand Colors */
+  --nf-bg: 11 5 22; /* #0B0516 - Deep Aubergine */
+  --nf-ink: 237 233 254; /* #EDE9FE - Light Lavender */
+  --nf-g1: 192 132 252; /* #C084FC - Purple Gradient Start */
+  --nf-g2: 124 58 237; /* #7C3AED - Purple Gradient End */
+  --nf-panel: rgba(255, 255, 255, 0.04);
+  --nf-grad-1: #C084FC;
+  --nf-grad-2: #7C3AED;
+  
+  /* Extended Purple Palette */
+  --color-purple-50: 250 245 255;
+  --color-purple-100: 243 232 255;
+  --color-purple-200: 233 213 255;
+  --color-purple-300: 196 181 253;
+  --color-purple-400: 167 139 250;
+  --color-purple-500: 139 92 246;
+  --color-purple-600: 124 58 237;
+  --color-purple-700: 109 40 217;
+  --color-purple-800: 91 33 182;
+  --color-purple-900: 76 29 149;
+  
+  /* Neutral Colors */
+  --color-white: 255 255 255;
+  --color-black: 0 0 0;
+  --color-gray-50: 249 250 251;
+  --color-gray-100: 243 244 246;
+  --color-gray-200: 229 231 235;
+  --color-gray-300: 209 213 219;
+  --color-gray-400: 156 163 175;
+  --color-gray-500: 107 114 128;
+  --color-gray-600: 75 85 99;
+  --color-gray-700: 55 65 81;
+  --color-gray-800: 31 41 55;
+  --color-gray-900: 17 24 39;
+  
+  /* Glass Surface Tokens */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-hover: rgba(255, 255, 255, 0.08);
+  
+  /* Transition Tokens */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animation Keyframes */
+@keyframes pan {
+  from { transform: translateX(-100%) skewY(-6deg); }
+  to { transform: translateX(100%) skewY(-6deg); }
+}
+
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(0.5deg); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+/* Non-critical styles loaded after */
+@tailwind components;
+@tailwind utilities;
+
+/* Premium Utility Classes */
+@layer components {
+  .nf-panel {
+    background: var(--nf-panel);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  
+  .nf-gradient-text {
+    background: linear-gradient(90deg, var(--nf-grad-1), var(--nf-grad-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .hero-lines::before {
+    content: "";
+    position: absolute;
+    inset: -20% -10%;
+    background: 
+      radial-gradient(60% 40% at 50% 50%, rgba(255,255,255,0.06), transparent 70%),
+      repeating-linear-gradient(110deg, rgba(192,132,252,0.18) 0 2px, transparent 2px 14px);
+    transform: skewY(-6deg);
+    filter: blur(18px);
+    opacity: 0.35;
+    pointer-events: none;
+    animation: pan 18s linear infinite;
+  }
+  
+  .glass-header {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .nav-link-premium {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+  }
+  
+  .nav-link-premium::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--nf-grad-1), var(--nf-grad-2));
+    transition: width 0.3s cubic-bezier(0.22,1,0.36,1);
+  }
+  
+  .nav-link-premium:hover::after {
+    width: 100%;
+  }
+  
+  .btn-premium {
+    position: relative;
+    background: linear-gradient(135deg, var(--nf-grad-1), var(--nf-grad-2));
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
+    overflow: hidden;
+  }
+  
+  .btn-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.6s ease;
+  }
+  
+  .btn-premium:hover::before {
+    left: 100%;
+  }
+  
+  .btn-premium:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(124,58,237,0.3);
+  }
+  
+  .service-animation-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .group:hover .service-animation-layer {
+    opacity: 1;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  
+  .hero-lines::before {
+    animation: none;
+  }
+  
+  .btn-premium:hover {
+    transform: none;
+  }
+}
+
+/* Enhanced body styles */
+html, body {
+  min-height: 100vh;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Light mode background */
+html, body {
+  background: #ffffff;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #1f2937;
+}
+
+/* Dark mode background */
+html.dark, html.dark body {
+  background: rgb(var(--nf-bg));
+  color: rgb(var(--nf-ink));
+}
