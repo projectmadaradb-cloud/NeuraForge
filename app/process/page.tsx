@@ -164,10 +164,10 @@ export default function ProcessPage() {
       <section className="section-padding bg-gradient-to-r from-nf-primary/10 via-nf-accent/10 to-nf-primary/10">
         <div className="container-width">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold font-display text-white mb-6">
+            <h2 className="text-4xl font-bold font-display text-gray-900 dark:text-white mb-6">
               Typical Timeline
             </h2>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-700 dark:text-white/70 max-w-3xl mx-auto">
               Most projects follow this timeline, but we adjust based on complexity and requirements.
             </p>
           </div>
@@ -182,8 +182,8 @@ export default function ProcessPage() {
             ].map((item, index) => (
               <div key={index} className="text-center">
                 <div className={`w-full h-2 ${item.color} rounded-full mb-4`} />
-                <div className="text-white font-semibold mb-1">{item.week}</div>
-                <div className="text-white/70 text-sm">{item.phase}</div>
+                <div className="text-gray-900 dark:text-white font-semibold mb-1">{item.week}</div>
+                <div className="text-gray-700 dark:text-white/70 text-sm">{item.phase}</div>
               </div>
             ))}
           </div>
@@ -194,10 +194,10 @@ export default function ProcessPage() {
       <section className="section-padding">
         <div className="container-width">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold font-display text-white mb-6">
+            <h2 className="text-4xl font-bold font-display text-gray-900 dark:text-white mb-6">
               Engagement Models
             </h2>
-            <p className="text-xl text-white/70 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-700 dark:text-white/70 max-w-3xl mx-auto">
               Choose the model that best fits your project size, timeline, and working style.
             </p>
           </div>
@@ -206,7 +206,7 @@ export default function ProcessPage() {
             {engagementModels.map((model, index) => (
               <Card key={model.type} className="p-8 hover:scale-105 transition-all group">
                 <div className="text-center mb-6">
-                  <h3 className="text-xl font-semibold text-white mb-2 group-hover:text-nf-primary transition-colors">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-nf-primary transition-colors">
                     {model.type}
                   </h3>
                   <div className="text-nf-accent font-medium">{model.duration}</div>
@@ -217,14 +217,14 @@ export default function ProcessPage() {
                     <div className="text-sm font-semibold text-nf-accent mb-1 uppercase tracking-wider">
                       Best For
                     </div>
-                    <div className="text-white/80">{model.bestFor}</div>
+                    <div className="text-gray-700 dark:text-white/80">{model.bestFor}</div>
                   </div>
                   
                   <div>
                     <div className="text-sm font-semibold text-nf-accent mb-1 uppercase tracking-wider">
                       Payment
                     </div>
-                    <div className="text-white/80">{model.payment}</div>
+                    <div className="text-gray-700 dark:text-white/80">{model.payment}</div>
                   </div>
                 </div>
                 
@@ -236,7 +236,7 @@ export default function ProcessPage() {
                     {model.includes.map((item, idx) => (
                       <div key={idx} className="flex items-center space-x-2">
                         <div className="w-2 h-2 bg-nf-primary rounded-full flex-shrink-0" />
-                        <span className="text-white/90 text-sm">{item}</span>
+                        <span className="text-gray-700 dark:text-white/90 text-sm">{item}</span>
                       </div>
                     ))}
                   </div>
@@ -251,10 +251,10 @@ export default function ProcessPage() {
       <section className="section-padding">
         <div className="container-width">
           <div className="glass rounded-3xl p-12 text-center">
-            <h2 className="text-4xl font-bold font-display text-white mb-6">
+            <h2 className="text-4xl font-bold font-display text-gray-900 dark:text-white mb-6">
               Ready to Get Started?
             </h2>
-            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-700 dark:text-white/80 mb-8 max-w-2xl mx-auto">
               Let's discuss your project and choose the right engagement model. 
               Most discovery calls happen same week.
             </p>
@@ -273,17 +273,17 @@ export default function ProcessPage() {
             
             {/* Quick stats */}
             <div className="mt-12 pt-8 border-t border-white/20">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-white/70">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-700 dark:text-white/70">
                 <div>
-                  <div className="font-semibold text-white mb-1">Discovery Call</div>
+                  <div className="font-semibold text-gray-900 dark:text-white mb-1">Discovery Call</div>
                   <div>Usually same week</div>
                 </div>
                 <div>
-                  <div className="font-semibold text-white mb-1">Project Kickoff</div>
+                  <div className="font-semibold text-gray-900 dark:text-white mb-1">Project Kickoff</div>
                   <div>Within 5 business days</div>
                 </div>
                 <div>
-                  <div className="font-semibold text-white mb-1">Typical Delivery</div>
+                  <div className="font-semibold text-gray-900 dark:text-white mb-1">Typical Delivery</div>
                   <div>2-4 weeks</div>
                 </div>
               </div>

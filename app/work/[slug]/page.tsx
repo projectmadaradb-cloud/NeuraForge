@@ -37,11 +37,11 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 </span>
               </div>
               
-              <h1 className="text-5xl md:text-6xl font-bold font-display text-white mb-6">
+              <h1 className="text-5xl md:text-6xl font-bold font-display text-gray-900 dark:text-white mb-6">
                 {caseStudy.title}
               </h1>
               
-              <p className="text-xl text-white/80 leading-relaxed mb-8 max-w-3xl">
+              <p className="text-xl text-gray-700 dark:text-white/80 leading-relaxed mb-8 max-w-3xl">
                 {caseStudy.summary || caseStudy.problem}
               </p>
             </div>
@@ -56,28 +56,28 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 <h3 className="text-sm font-semibold text-nf-accent mb-2 uppercase tracking-wider">
                   Industry
                 </h3>
-                <p className="text-white font-medium">{caseStudy.industry}</p>
+                <p className="text-gray-900 dark:text-white font-medium">{caseStudy.industry}</p>
               </Card>
               
               <Card className="text-center p-6">
                 <h3 className="text-sm font-semibold text-nf-accent mb-2 uppercase tracking-wider">
                   Timeline
                 </h3>
-                <p className="text-white font-medium">{caseStudy.timeline}</p>
+                <p className="text-gray-900 dark:text-white font-medium">{caseStudy.timeline}</p>
               </Card>
               
               <Card className="text-center p-6">
                 <h3 className="text-sm font-semibold text-nf-accent mb-2 uppercase tracking-wider">
                   Stack
                 </h3>
-                <p className="text-white font-medium text-sm">{caseStudy.stack}</p>
+                <p className="text-gray-900 dark:text-white font-medium text-sm">{caseStudy.stack}</p>
               </Card>
               
               <Card className="text-center p-6">
                 <h3 className="text-sm font-semibold text-nf-accent mb-2 uppercase tracking-wider">
                   Role
                 </h3>
-                <p className="text-white font-medium text-sm">{caseStudy.role}</p>
+                <p className="text-gray-900 dark:text-white font-medium text-sm">{caseStudy.role}</p>
               </Card>
             </div>
           </div>
@@ -88,19 +88,19 @@ export default async function CaseStudyPage({ params }: PageProps) {
           <div className="container-width">
             <div className="grid lg:grid-cols-2 gap-12">
               <Card className="p-8">
-                <h2 className="text-3xl font-bold font-display text-white mb-6">
+                <h2 className="text-3xl font-bold font-display text-gray-900 dark:text-white mb-6">
                   Problem
                 </h2>
-                <p className="text-white/90 leading-relaxed text-lg">
+                <p className="text-gray-700 dark:text-white/90 leading-relaxed text-lg">
                   {caseStudy.problem}
                 </p>
               </Card>
               
               <Card className="p-8">
-                <h2 className="text-3xl font-bold font-display text-white mb-6">
+                <h2 className="text-3xl font-bold font-display text-gray-900 dark:text-white mb-6">
                   Approach
                 </h2>
-                <p className="text-white/90 leading-relaxed text-lg">
+                <p className="text-gray-700 dark:text-white/90 leading-relaxed text-lg">
                   {caseStudy.approach}
                 </p>
               </Card>
@@ -112,7 +112,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
         <section className="section-padding bg-gradient-to-r from-nf-primary/10 via-nf-accent/10 to-nf-primary/10">
           <div className="container-width">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold font-display text-white mb-6">
+              <h2 className="text-4xl font-bold font-display text-gray-900 dark:text-white mb-6">
                 Results
               </h2>
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-orange-500/20 text-orange-300 rounded-full text-sm">
@@ -126,7 +126,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                   <div className="text-3xl font-bold text-nf-primary mb-2">
                     {result.split(' ')[0]}
                   </div>
-                  <div className="text-white/80">
+                  <div className="text-gray-700 dark:text-white/80">
                     {result.split(' ').slice(1).join(' ')}
                   </div>
                 </Card>
@@ -139,7 +139,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
         {caseStudy.screens && caseStudy.screens.length > 0 && (
           <section className="section-padding">
             <div className="container-width">
-              <h2 className="text-4xl font-bold font-display text-white text-center mb-12">
+              <h2 className="text-4xl font-bold font-display text-gray-900 dark:text-white text-center mb-12">
                 Key Features
               </h2>
               
@@ -150,7 +150,7 @@ export default async function CaseStudyPage({ params }: PageProps) {
                       <div className="w-8 h-8 bg-nf-primary rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">
                         {index + 1}
                       </div>
-                      <p className="text-white/90 leading-relaxed">
+                      <p className="text-gray-700 dark:text-white/90 leading-relaxed">
                         {screen}
                       </p>
                     </div>
@@ -165,10 +165,10 @@ export default async function CaseStudyPage({ params }: PageProps) {
         <section className="section-padding">
           <div className="container-width">
             <div className="glass rounded-3xl p-12 text-center">
-              <h2 className="text-4xl font-bold font-display text-white mb-6">
+              <h2 className="text-4xl font-bold font-display text-gray-900 dark:text-white mb-6">
                 Want Similar Results?
               </h2>
-              <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+              <p className="text-xl text-gray-700 dark:text-white/80 mb-8 max-w-2xl mx-auto">
                 Get a detailed proposal in 48 hours. No commitments, just a clear plan 
                 and timeline for your project.
               </p>
