@@ -37,11 +37,11 @@ export default async function CaseStudyPage({ params }: PageProps) {
                 </span>
               </div>
               
-              <h1 className="text-5xl md:text-6xl font-bold font-display text-gray-900 dark:text-white mb-6">
+              <h1 className="text-5xl md:text-6xl font-bold font-display text-white mb-6">
                 {caseStudy.title}
               </h1>
               
-              <p className="text-xl text-gray-700 dark:text-white/80 leading-relaxed mb-8 max-w-3xl">
+              <p className="text-xl text-white/80 leading-relaxed mb-8 max-w-3xl">
                 {caseStudy.summary || caseStudy.problem}
               </p>
             </div>
