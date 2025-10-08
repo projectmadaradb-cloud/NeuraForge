@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { prisma } from '@/lib/db';
 import { enqueueJobWithRedis } from '@/lib/ara/worker';
+import { validateResearchEnv } from '@/lib/env';
 
 const createJobSchema = z.object({
   topic: z.string().min(10).max(500),
@@ -14,6 +15,9 @@ const createJobSchema = z.object({
 
 export async function POST(request: NextRequest) {
   try {
+    // Validate research environment at runtime
+    validateResearchEnv();
+    
     const body = await request.json();
     const validatedData = createJobSchema.parse(body);
     
@@ -47,6 +51,20 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { error: 'Invalid input data', details: error.issues },
         { status: 400 }
+      );
+    }
+    
+    // Check for environment configuration errors
+    if (error instanceof Error && (
+      error.message.includes('DATABASE_URL') || 
+      error.message.includes('DEEPSEEK_API_KEY')
+    )) {
+      return NextResponse.json(
+        { 
+          error: 'Research system not configured', 
+          details: 'Please contact support - research functionality requires additional setup'
+        },
+        { status: 503 } // Service Unavailable
       );
     }
     

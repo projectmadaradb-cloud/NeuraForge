@@ -1,11 +1,11 @@
 import { z } from 'zod';
 
 const envSchema = z.object({
-  // Database
-  DATABASE_URL: z.string().url('DATABASE_URL must be a valid PostgreSQL connection string'),
+  // Database (only required in production at runtime)
+  DATABASE_URL: z.string().url('DATABASE_URL must be a valid PostgreSQL connection string').optional(),
   
-  // DeepSeek API (required for ARA)
-  DEEPSEEK_API_KEY: z.string().min(1, 'DEEPSEEK_API_KEY is required for research functionality'),
+  // DeepSeek API (only required when research features are used)
+  DEEPSEEK_API_KEY: z.string().min(1, 'DEEPSEEK_API_KEY is required for research functionality').optional(),
   DEEPSEEK_BASE_URL: z.string().url().default('https://api.deepseek.com'),
   
   // SerpAPI for web search
@@ -73,7 +73,22 @@ export function getEnvWarnings(): string[] {
   return warnings;
 }
 
-// Call validation on module load in production
+export function validateResearchEnv(): void {
+  if (!process.env.DATABASE_URL) {
+    throw new Error('DATABASE_URL is required for research functionality');
+  }
+  
+  if (!process.env.DEEPSEEK_API_KEY) {
+    throw new Error('DEEPSEEK_API_KEY is required for research functionality');
+  }
+}
+
+// Call validation on module load in production (but don't fail the build)
 if (process.env.NODE_ENV === 'production') {
-  validateEnv();
+  try {
+    validateEnv();
+  } catch (error) {
+    console.warn('⚠️ Environment validation warnings in production:', error);
+    // Don't fail the build, just warn
+  }
 }
