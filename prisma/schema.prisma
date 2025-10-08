@@ -1,0 +1,86 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now()) @map("created_at")
+  
+  jobs      Job[]
+  
+  @@map("users")
+}
+
+model Job {
+  id          String   @id @default(cuid())
+  userId      String?  @map("user_id")
+  email       String?
+  topic       String
+  audience    String   @default("general")
+  format      String   @default("report") // 'summary'|'report'|'thread'
+  tone        String   @default("professional")
+  length      String   @default("medium") // 'short'|'medium'|'long'
+  status      String   @default("queued") // 'queued'|'running'|'done'|'error'
+  progress    Int      @default(0)
+  errorMsg    String?  @map("error_msg")
+  createdAt   DateTime @default(now()) @map("created_at")
+  completedAt DateTime? @map("completed_at")
+  
+  user        User?    @relation(fields: [userId], references: [id])
+  sources     Source[]
+  report      Report?
+  
+  @@map("jobs")
+}
+
+model Source {
+  id          String   @id @default(cuid())
+  jobId       String   @map("job_id")
+  url         String
+  title       String
+  contentText String   @map("content_text") @db.Text
+  score       Float    @default(0.0)
+  createdAt   DateTime @default(now()) @map("created_at")
+  
+  job         Job      @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  chunks      Chunk[]
+  
+  @@map("sources")
+}
+
+model Chunk {
+  id         String  @id @default(cuid())
+  sourceId   String  @map("source_id")
+  text       String  @db.Text
+  embedding  Float[] // Will store as array of floats for pgvector
+  
+  source     Source  @relation(fields: [sourceId], references: [id], onDelete: Cascade)
+  
+  @@map("chunks")
+}
+
+model Report {
+  id           String  @id @default(cuid())
+  jobId        String  @unique @map("job_id")
+  mdx          String  @db.Text
+  pdfUrl       String? @map("pdf_url")
+  summary      String  @db.Text
+  insightsJson String  @map("insights_json") @db.Text // JSON string
+  
+  job          Job     @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  
+  @@map("reports")
+}

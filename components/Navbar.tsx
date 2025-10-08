@@ -13,6 +13,7 @@ export default function Navbar() {
         <nav className="hidden md:flex gap-6 caption items-center font-medium">
           <Link href="/services" className="text-gray-700 hover:text-purple-600 dark:text-white dark:hover:text-purple-400 transition-colors animate-nav-item">Services</Link>
           <Link href="/portfolio" className="text-gray-700 hover:text-purple-600 dark:text-white dark:hover:text-purple-400 transition-colors animate-nav-item">Portfolio</Link>
+          <Link href="/research" className="text-gray-700 hover:text-purple-600 dark:text-white dark:hover:text-purple-400 transition-colors animate-nav-item">Research Assistant</Link>
           <Link href="/about" className="text-gray-700 hover:text-purple-600 dark:text-white dark:hover:text-purple-400 transition-colors animate-nav-item">About</Link>
           <Link href="/contact" className="text-gray-700 hover:text-purple-600 dark:text-white dark:hover:text-purple-400 transition-colors animate-nav-item">Contact</Link>
           <Link href="/contact" className="btn-gradient">Work With Me</Link>
@@ -34,6 +35,7 @@ export default function Navbar() {
         <div id="mnav" className="md:hidden px-4 py-3 space-y-2 bg-white/60 dark:bg-black/60 border-t border-gray-200/20 dark:border-white/10">
           <Link href="/services" onClick={() => setOpen(false)} className="block caption font-medium text-gray-700 hover:text-purple-600 dark:text-white dark:hover:text-purple-400 transition-colors">Services</Link>
           <Link href="/portfolio" onClick={() => setOpen(false)} className="block caption font-medium text-gray-700 hover:text-purple-600 dark:text-white dark:hover:text-purple-400 transition-colors">Portfolio</Link>
+          <Link href="/research" onClick={() => setOpen(false)} className="block caption font-medium text-gray-700 hover:text-purple-600 dark:text-white dark:hover:text-purple-400 transition-colors">Research Assistant</Link>
           <Link href="/about" onClick={() => setOpen(false)} className="block caption font-medium text-gray-700 hover:text-purple-600 dark:text-white dark:hover:text-purple-400 transition-colors">About</Link>
           <Link href="/contact" onClick={() => setOpen(false)} className="block caption font-medium text-gray-700 hover:text-purple-600 dark:text-white dark:hover:text-purple-400 transition-colors">Contact</Link>
           <Link href="/contact" className="btn-gradient inline-block" onClick={() => setOpen(false)}>Work With Me</Link>

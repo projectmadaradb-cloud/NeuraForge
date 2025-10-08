@@ -220,7 +220,7 @@ export default function Hero() {
 
           {/* Enhanced Premium CTA Buttons - Mobile Optimized */}
           <motion.div 
-            className="flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center mb-12 sm:mb-20 px-4"
+            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-12 sm:mb-20 px-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -247,6 +247,32 @@ export default function Hero() {
                 </Button>
               </motion.div>
             </Link>
+            <Link href="/research">
+              <motion.div
+                whileHover={{ scale: 1.02, y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                className="group"
+              >
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  className={`w-full sm:w-auto px-6 sm:px-8 py-4 sm:py-5 text-base sm:text-lg font-semibold transition-all duration-300 border-2 touch-target ${
+                    isLightMode 
+                      ? 'border-purple-300 hover:border-purple-500 text-purple-700 hover:bg-purple-50' 
+                      : 'border-purple-400 hover:border-purple-300 text-purple-300 hover:bg-purple-900/20'
+                  }`}
+                >
+                  <span className="flex items-center justify-center gap-2 sm:gap-3">
+                    <span className="hidden sm:inline">Try Research Assistant</span>
+                    <span className="sm:hidden">Research AI</span>
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                  </span>
+                </Button>
+              </motion.div>
+            </Link>
             <Link href="/work">
               <motion.div
                 whileHover={{ scale: 1.02, y: -2 }}
@@ -257,7 +283,7 @@ export default function Hero() {
                 <Button 
                   variant="secondary" 
                   size="lg"
-                  className={`glass-nf w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-semibold transition-all duration-300 border shadow-nf-soft hover:shadow-nf-glow touch-target ${
+                  className={`glass-nf w-full sm:w-auto px-6 sm:px-8 py-4 sm:py-5 text-base sm:text-lg font-semibold transition-all duration-300 border shadow-nf-soft hover:shadow-nf-glow touch-target ${
                     isLightMode 
                       ? 'border-gray-200/60 hover:border-purple-300 text-gray-900' 
                       : 'border-white/20 hover:border-purple-400/50 text-white'

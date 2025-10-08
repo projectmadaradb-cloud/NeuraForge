@@ -50,13 +50,30 @@ In Vercel project dashboard:
 3. Add these variables:
 
 ```
+# SMTP Configuration for Email Notifications
 SMTP_HOST = smtppro.zoho.in
 SMTP_PORT = 587
 SMTP_USER = hello@neuraforge.tech
 SMTP_PASS = Uwbw2Ss66Jk2
+
+# Email Settings
 EMAIL_FROM = hello@neuraforge.tech
 EMAIL_TO = hello@neuraforge.tech
+
+# Application URLs (IMPORTANT: Replace with your actual domain)
+NEXT_PUBLIC_BASE_URL = https://neuraforge.tech
+
+# Environment
 NODE_ENV = production
+
+# Database & AI APIs (for Research Assistant)
+DATABASE_URL = your_postgresql_url
+DEEPSEEK_API_KEY = your_deepseek_api_key
+SERPAPI_KEY = your_serpapi_key
+
+# Optional Redis (for job queue)
+UPSTASH_REDIS_REST_URL = your_redis_url
+UPSTASH_REDIS_REST_TOKEN = your_redis_token
 ```
 
 ### Step 7: Deploy!

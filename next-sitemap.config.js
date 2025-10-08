@@ -16,6 +16,13 @@ module.exports = {
     await config.transform(config, '/portfolio'),
     await config.transform(config, '/about'),
     await config.transform(config, '/contact'),
+    await config.transform(config, '/research'),
+    await config.transform(config, '/pricing'),
+    await config.transform(config, '/process'),
+    await config.transform(config, '/work'),
+    await config.transform(config, '/qa'),
+    await config.transform(config, '/terms'),
+    await config.transform(config, '/privacy'),
     
     // Dynamic service pages
     await config.transform(config, '/services/web-development'),
