@@ -87,8 +87,28 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} ${poppins.variable} ${jetbrainsMono.variable}`}>
       <head>
+        {/* Critical CSS for preventing FOUC */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            body { 
+              background-color: white; 
+              transition: background-color 0.3s ease;
+              opacity: 1 !important;
+              visibility: visible !important;
+            }
+            @media (prefers-color-scheme: dark) {
+              body { background-color: rgb(11 5 22); }
+            }
+            /* Ensure content is always visible */
+            main section h1, main section p, main section div {
+              opacity: 1 !important;
+              visibility: visible !important;
+            }
+          `
+        }} />
+        
         {/* Preconnect to Google Fonts for faster loading */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

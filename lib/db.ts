@@ -8,17 +8,17 @@ const globalForPrisma = globalThis as unknown as {
 function createPrismaClient() {
   let databaseUrl = process.env.DATABASE_URL;
   
-  // In development, disable prepared statements to avoid conflicts during hot reload
-  if (process.env.NODE_ENV === 'development' && databaseUrl) {
+  // Disable prepared statements for pooled connections to avoid conflicts
+  if (databaseUrl) {
     if (databaseUrl.includes('?')) {
-      databaseUrl += '&pgbouncer=true&connection_limit=1';
+      databaseUrl += '&pgbouncer=true&connection_limit=1&prepared_statements=false';
     } else {
-      databaseUrl += '?pgbouncer=true&connection_limit=1';
+      databaseUrl += '?pgbouncer=true&connection_limit=1&prepared_statements=false';
     }
   }
   
   return new PrismaClient({
-    log: ['query'],
+    log: process.env.NODE_ENV === 'development' ? ['query'] : ['error'],
     datasources: {
       db: {
         url: databaseUrl

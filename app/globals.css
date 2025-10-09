@@ -4,6 +4,28 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Prevent FOUC and ensure proper initial render */
+html {
+  color-scheme: light dark;
+}
+
+body {
+  /* Ensure body has background during hydration */
+  background-color: white;
+  transition: background-color 0.3s ease;
+}
+
+html.dark body {
+  background-color: rgb(11 5 22);
+}
+
+/* Prevent layout shift during hydration */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 :root {
   --nf-bg: 11 5 22;
   --nf-ink: 237 233 254;

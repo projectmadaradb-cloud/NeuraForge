@@ -10,7 +10,7 @@ export default function ThemeProvider({ children }: ThemeProviderProps) {
   return (
     <NextThemesProvider 
       attribute="class" 
-      defaultTheme="system" 
+      defaultTheme="light" 
       enableSystem={true}
       disableTransitionOnChange={false}
       storageKey="neuraforge-theme"

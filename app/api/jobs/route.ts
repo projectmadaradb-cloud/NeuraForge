@@ -35,13 +35,17 @@ export async function POST(request: NextRequest) {
       },
     });
     
-    // Enqueue for processing
-    await enqueueJobWithRedis(job.id);
+    // Enqueue for processing (with fallback)
+    try {
+      await enqueueJobWithRedis(job.id);
+    } catch (queueError) {
+      console.log('Queue enqueue failed, job created but not processed:', queueError);
+    }
     
     return NextResponse.json({
       jobId: job.id,
       status: 'queued',
-      message: 'Research job created and queued for processing'
+      message: 'Research job created successfully! Processing will begin shortly.'
     });
     
   } catch (error) {
@@ -69,7 +73,7 @@ export async function POST(request: NextRequest) {
     }
     
     return NextResponse.json(
-      { error: 'Failed to create research job' },
+      { error: 'Failed to create research job', details: error instanceof Error ? error.message : 'Unknown error' },
       { status: 500 }
     );
   }

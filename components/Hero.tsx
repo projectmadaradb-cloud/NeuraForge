@@ -26,14 +26,12 @@ export default function Hero() {
   useEffect(() => {
     const video = videoRef.current;
     if (video && mounted && resolvedTheme === 'dark') {
-      // Handle video load events only in dark mode
       const handleLoadedData = () => setVideoLoaded(true);
       const handleError = () => setVideoError(true);
       
       video.addEventListener('loadeddata', handleLoadedData);
       video.addEventListener('error', handleError);
 
-      // Try to play the video
       video.play().catch(() => setVideoError(true));
 
       return () => {
@@ -43,7 +41,8 @@ export default function Hero() {
     }
   }, [mounted, resolvedTheme]);
 
-  const isLightMode = mounted && resolvedTheme === 'light';
+  // Safe theme detection with fallback
+  const isLightMode = !mounted ? true : resolvedTheme !== 'dark';
 
   return (
     <section className="relative w-full min-h-screen mobile-safe overflow-hidden bg-gradient-to-br from-purple-50/50 via-white to-blue-50/30 dark:from-purple-950/20 dark:via-gray-900 dark:to-blue-950/20">
@@ -139,7 +138,7 @@ export default function Hero() {
           {/* Main Headline with Staggered Animation - Mobile Responsive */}
           <motion.div 
             className="mb-6 sm:mb-8"
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 1 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
@@ -150,7 +149,7 @@ export default function Hero() {
                 <motion.span
                   key={wordIndex}
                   className="inline-block mr-2 sm:mr-4"
-                  initial={{ opacity: 0, y: 50, rotateX: -90 }}
+                  initial={{ opacity: 1, y: 0, rotateX: 0 }}
                   animate={{ opacity: 1, y: 0, rotateX: 0 }}
                   transition={{ 
                     duration: 0.8,
@@ -169,7 +168,7 @@ export default function Hero() {
               <br />
               <motion.span
                 className={`inline-block nf-gradient-text relative hero-lines`}
-                initial={{ opacity: 0, scale: 0.5 }}
+                initial={{ opacity: 1, scale: 1 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ 
                   duration: 1.2,
@@ -183,261 +182,152 @@ export default function Hero() {
             </h1>
           </motion.div>
           
-          {/* Subheadline - Mobile Optimized */}
+          {/* Subheadline with Beautiful Animation */}
           <motion.p 
-            className={`text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed mb-6 sm:mb-8 max-w-3xl mx-auto px-2 ${
+            className={`text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed mb-6 sm:mb-8 max-w-3xl mx-auto px-2 font-medium ${
               isLightMode ? 'text-gray-700' : 'text-white/90'
             }`}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            style={{ 
-              textShadow: isLightMode 
-                ? '0 1px 2px rgba(0, 0, 0, 0.05)' 
-                : '0 2px 4px rgba(0, 0, 0, 0.5)' 
-            }}
+            transition={{ duration: 0.8, delay: 1.0 }}
           >
-            Turning Data into Power. Code into Profits.
+            Turning Data into Power. <span className="nf-gradient-text font-semibold">Code into Profits</span>.
           </motion.p>
-
-          {/* Description - Mobile Optimized */}
+          
+          {/* Description with Beautiful Animation */}
           <motion.p 
-            className={`text-sm sm:text-base lg:text-lg leading-relaxed mb-8 sm:mb-12 max-w-2xl mx-auto px-2 ${
+            className={`text-sm sm:text-base md:text-lg leading-relaxed mb-8 sm:mb-10 max-w-2xl mx-auto px-2 ${
               isLightMode ? 'text-gray-600' : 'text-white/80'
             }`}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            style={{ 
-              textShadow: isLightMode 
-                ? '0 1px 2px rgba(0, 0, 0, 0.05)' 
-                : '0 2px 4px rgba(0, 0, 0, 0.5)' 
-            }}
+            transition={{ duration: 0.8, delay: 1.2 }}
           >
-            AI-native boutique studio building web apps, automation, and intelligent systems 
-            that move your revenue needle. Fixed scope, measurable outcomes.
+            AI-native boutique studio building web apps, automation, and intelligent systems that move your revenue needle with <span className="nf-gradient-text font-semibold">measurable outcomes</span>.
           </motion.p>
 
-          {/* Enhanced Premium CTA Buttons - Mobile Optimized */}
+          {/* CTA Buttons with Stunning Animation */}
           <motion.div 
-            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-12 sm:mb-20 px-4"
-            initial={{ opacity: 0, y: 30 }}
+            className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-8 sm:mb-12"
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
+            transition={{ duration: 0.8, delay: 1.4 }}
           >
             <Link href="/contact">
               <motion.div
-                whileHover={{ scale: 1.02, y: -2 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                className="relative group"
               >
-                <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
                 <Button 
-                  size="lg"
-                  className="btn-premium relative w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-semibold shadow-nf-glow hover:shadow-nf-glow touch-target"
+                  size="lg" 
+                  className="w-full sm:w-auto py-4 px-8 text-lg font-semibold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-700 hover:from-blue-700 hover:via-purple-700 hover:to-blue-800 text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3">
-                    <span className="hidden sm:inline">Start Your AI Journey</span>
-                    <span className="sm:hidden">Start Building</span>
-                    <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                  </span>
+                  Start Your Project
                 </Button>
               </motion.div>
             </Link>
+
+            {/* Research Assistant CTA - Prominent Feature */}
             <Link href="/research">
               <motion.div
-                whileHover={{ scale: 1.02, y: -2 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                className="group"
+              >
+                <Button 
+                  size="lg" 
+                  className={`w-full sm:w-auto py-4 px-8 text-lg font-semibold border-2 transition-all duration-300 relative overflow-hidden group ${
+                    isLightMode 
+                      ? 'border-emerald-400 text-emerald-700 bg-gradient-to-r from-emerald-50 to-green-50 hover:from-emerald-100 hover:to-green-100 hover:border-emerald-500' 
+                      : 'border-emerald-400/60 text-emerald-300 bg-gradient-to-r from-emerald-950/30 to-green-950/30 hover:from-emerald-900/40 hover:to-green-900/40 hover:border-emerald-300'
+                  }`}
+                >
+                  <span className="relative z-10 flex items-center gap-2">
+                    🤖 Try AI Research
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-emerald-400/10 to-green-400/10 transform translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                </Button>
+              </motion.div>
+            </Link>
+            
+            <Link href="/portfolio">
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
                 <Button 
                   variant="outline" 
-                  size="lg"
-                  className={`w-full sm:w-auto px-6 sm:px-8 py-4 sm:py-5 text-base sm:text-lg font-semibold transition-all duration-300 border-2 touch-target ${
+                  size="lg" 
+                  className={`w-full sm:w-auto py-4 px-8 text-lg font-semibold border-2 transition-all duration-300 ${
                     isLightMode 
-                      ? 'border-purple-300 hover:border-purple-500 text-purple-700 hover:bg-purple-50' 
-                      : 'border-purple-400 hover:border-purple-300 text-purple-300 hover:bg-purple-900/20'
+                      ? 'border-purple-300 text-purple-700 bg-white/80 hover:bg-purple-50 hover:border-purple-400' 
+                      : 'border-purple-400/50 text-purple-300 bg-white/5 hover:bg-white/10 hover:border-purple-300'
                   }`}
                 >
-                  <span className="flex items-center justify-center gap-2 sm:gap-3">
-                    <span className="hidden sm:inline">Try Research Assistant</span>
-                    <span className="sm:hidden">Research AI</span>
-                    <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                  </span>
-                </Button>
-              </motion.div>
-            </Link>
-            <Link href="/work">
-              <motion.div
-                whileHover={{ scale: 1.02, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                className="group"
-              >
-                <Button 
-                  variant="secondary" 
-                  size="lg"
-                  className={`glass-nf w-full sm:w-auto px-6 sm:px-8 py-4 sm:py-5 text-base sm:text-lg font-semibold transition-all duration-300 border shadow-nf-soft hover:shadow-nf-glow touch-target ${
-                    isLightMode 
-                      ? 'border-gray-200/60 hover:border-purple-300 text-gray-900' 
-                      : 'border-white/20 hover:border-purple-400/50 text-white'
-                  }`}
-                >
-                  <span className="flex items-center justify-center gap-2 sm:gap-3">
-                    <span className="hidden sm:inline">View Success Stories</span>
-                    <span className="sm:hidden">See Portfolio</span>
-                    <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform duration-300 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                  </span>
+                  View Our Work
                 </Button>
               </motion.div>
             </Link>
           </motion.div>
 
-          {/* Luxury Trust Points with Enhanced Styling - Mobile Optimized */}
+          {/* Beautiful Trust Points with Staggered Animation */}
           <motion.div 
-            className={`card-luxury max-w-4xl mx-auto p-4 sm:p-6 lg:p-8 backdrop-blur-xl border mobile-safe ${
-              isLightMode 
-                ? 'bg-white/95 border-gray-200/60 shadow-xl' 
-                : 'bg-white/3 border-white/10 shadow-2xl'
-            }`}
-            initial={{ opacity: 0, y: 30, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 1, delay: 1, ease: [0.175, 0.885, 0.32, 1.275] }}
-            whileHover={{ scale: 1.01, y: -2 }}
+            className="flex flex-wrap justify-center gap-4 sm:gap-8 text-sm sm:text-base"
+            initial={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.6 }}
           >
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-              {trustPoints.map((point, index) => (
-                <motion.div 
-                  key={index}
-                  className="flex items-center justify-center sm:justify-center text-center group"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ 
-                    duration: 0.6, 
-                    delay: 1.2 + (index * 0.15),
-                    ease: [0.175, 0.885, 0.32, 1.275]
-                  }}
-                  whileHover={{ scale: 1.02 }}
-                >
-                  <div className="flex items-center">
-                    {/* Premium Checkmark with Gradient */}
-                    <div className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full mr-2 sm:mr-3 flex items-center justify-center transition-all duration-300 group-hover:scale-110 flex-shrink-0 ${
-                      isLightMode 
-                        ? 'bg-gradient-to-br from-purple-500 to-blue-600 shadow-lg' 
-                        : 'bg-gradient-to-br from-purple-400 to-blue-500 shadow-nf-glow'
-                    }`}>
-                      <svg className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    
-                    {/* Enhanced Text with Luxury Typography */}
-                    <span className={`text-sm sm:text-base lg:text-lg font-semibold tracking-wide transition-colors duration-300 ${
-                      isLightMode 
-                        ? 'text-gray-800 group-hover:text-purple-700' 
-                        : 'text-white/90 group-hover:text-purple-300'
-                    }`}>
-                      {point}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-            
-            {/* Subtle glow effect for luxury feel */}
-            <div className="absolute inset-0 -z-10 bg-gradient-to-r from-purple-400/10 via-blue-400/10 to-purple-400/10 rounded-2xl blur-xl opacity-50"></div>
+            {trustPoints.map((point, index) => (
+              <motion.div 
+                key={index} 
+                className="flex items-center gap-2"
+                initial={{ opacity: 1, scale: 1 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ 
+                  duration: 0.6,
+                  delay: 1.8 + (index * 0.1),
+                  ease: [0.175, 0.885, 0.32, 1.275]
+                }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="w-2 h-2 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex-shrink-0 shadow-sm"></div>
+                <span className={`font-medium ${
+                  isLightMode ? 'text-gray-600' : 'text-white/70'
+                }`}>{point}</span>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </div>
 
-      {/* Enhanced Luxury Scroll Indicator */}
-      <motion.div
-        className="absolute bottom-12 left-1/2 z-20"
-        style={{ transform: 'translateX(-50%)' }}
-        initial={{ opacity: 0, y: -20 }}
+      {/* Beautiful Scroll Indicator with Animation */}
+      <motion.div 
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
+        initial={{ opacity: 1, y: 0 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.2 }}
+        transition={{ duration: 1, delay: 2.2 }}
       >
-        <div className={`flex flex-col items-center group cursor-pointer ${
-          isLightMode ? 'text-gray-600' : 'text-white/70'
-        }`}>
-          <span className="text-xs mb-3 font-medium tracking-wider uppercase opacity-80 group-hover:opacity-100 transition-opacity duration-300">
-            Scroll to explore
-          </span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className={`w-6 h-10 border-2 rounded-full flex justify-center backdrop-blur-sm transition-all duration-300 group-hover:scale-110 ${
-              isLightMode 
-                ? 'border-gray-400/60 bg-white/30 shadow-lg' 
-                : 'border-white/30 bg-white/5 shadow-nf-soft'
-            }`}
-          >
-            <motion.div
-              animate={{ y: [0, 16, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              className="w-1 h-3 bg-gradient-to-b from-purple-400 to-blue-500 rounded-full mt-2 shadow-sm"
-            />
-          </motion.div>
-        </div>
+        <motion.div 
+          className={`flex flex-col items-center gap-2 ${
+            isLightMode ? 'text-gray-400' : 'text-white/50'
+          }`}
+          animate={{ y: [0, 5, 0] }}
+          transition={{ 
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        >
+          <span className="text-xs font-medium tracking-wider uppercase">Scroll Down</span>
+          <div className={`w-px h-8 bg-gradient-to-b animate-pulse ${
+            isLightMode 
+              ? 'from-gray-400 to-transparent' 
+              : 'from-white/50 to-transparent'
+          }`}></div>
+        </motion.div>
       </motion.div>
-
-      {/* Enhanced Floating Decorative Elements */}
-      {!isLightMode && (
-        <div className="absolute inset-0 pointer-events-none z-15 overflow-hidden" aria-hidden="true">
-          {/* Floating Orbs */}
-          {Array.from({length: 8}).map((_, i) => (
-            <motion.div 
-              key={`orb-${i}`}
-              className="absolute rounded-full bg-gradient-to-r from-nf-g1/20 to-nf-g2/20 backdrop-blur-sm"
-              style={{
-                width: `${Math.random() * 8 + 4}px`,
-                height: `${Math.random() * 8 + 4}px`,
-                left: `${Math.min(90, 10 + i * 12)}%`,
-                top: `${20 + i * 8}%`,
-                filter: 'blur(0.5px)',
-              }}
-              animate={{
-                y: [0, -30, 0],
-                x: [0, Math.sin(i) * 20, 0],
-                opacity: [0.3, 0.8, 0.3],
-                scale: [1, 1.2, 1],
-              }}
-              transition={{
-                duration: 6 + i * 0.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: i * 0.8,
-              }}
-            />
-          ))}
-          
-          {/* Grid Lines */}
-          <motion.div 
-            className="absolute inset-0 opacity-10"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.1 }}
-            transition={{ duration: 2, delay: 1.5 }}
-          >
-            <svg width="100%" height="100%" className="absolute inset-0">
-              <defs>
-                <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
-                  <path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(192,132,252,0.1)" strokeWidth="1"/>
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#grid)" />
-            </svg>
-          </motion.div>
-        </div>
-      )}
     </section>
   );
 }

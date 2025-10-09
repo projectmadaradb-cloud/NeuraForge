@@ -229,6 +229,11 @@ async function processQueue(): Promise<void> {
 // Alternative: Redis queue implementation (if available)
 export async function enqueueJobWithRedis(jobId: string): Promise<void> {
   try {
+    // Force fallback to simple queue for now - Redis has connection issues
+    console.log('Using simple queue fallback instead of Redis');
+    return enqueueJob(jobId);
+    
+    /* Redis implementation disabled temporarily
     if (!process.env.UPSTASH_REDIS_REST_URL) {
       return enqueueJob(jobId); // Fallback to simple queue
     }
@@ -243,6 +248,7 @@ export async function enqueueJobWithRedis(jobId: string): Promise<void> {
     
     // Trigger worker (in production, this would be a separate worker process)
     processRedisQueue();
+    */
     
   } catch (error) {
     console.error('Redis queue failed, using fallback:', error);
